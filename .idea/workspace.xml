@@ -5,8 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a6599435-97d2-482d-b667-95cbb6f22183" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/test/java/ejemplos/services/DataForTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ejemplos/services/DataForTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/ejemplos/services/ExamServiceImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ejemplos/services/ExamServiceImplTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/ejemplos/services/ExamServiceImplTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/ejemplos/services/ExamServiceImplTest.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,7 +70,7 @@
       <recent name="ejemplos.services" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.ExamServiceImplTest.testSaveExam">
+  <component name="RunManager" selected="JUnit.ExamServiceImplTest.TestManejoException">
     <configuration name="ExamServiceImplTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="AppMokito" />
       <extension name="coverage">
@@ -85,7 +86,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ExamServiceImplTest.testQuestionExam" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ExamServiceImplTest.TestManejoException" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="AppMokito" />
       <extension name="coverage">
         <pattern>
@@ -95,7 +96,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="ejemplos.services" />
       <option name="MAIN_CLASS_NAME" value="ejemplos.services.ExamServiceImplTest" />
-      <option name="METHOD_NAME" value="testQuestionExam" />
+      <option name="METHOD_NAME" value="TestManejoException" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -151,11 +152,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.ExamServiceImplTest.TestManejoException" />
         <item itemvalue="JUnit.ExamServiceImplTest.testSaveExam" />
         <item itemvalue="JUnit.ExamServiceImplTest.testSaveExam (1)" />
         <item itemvalue="JUnit.ExamServiceImplTest.testQuestionExamVerify" />
         <item itemvalue="JUnit.ExamServiceImplTest" />
-        <item itemvalue="JUnit.ExamServiceImplTest.testQuestionExam" />
       </list>
     </recent_temporary>
   </component>
@@ -174,7 +175,7 @@
       <workItem from="1649388551643" duration="5580000" />
       <workItem from="1649649237334" duration="4752000" />
       <workItem from="1649986608077" duration="2331000" />
-      <workItem from="1650834129878" duration="4987000" />
+      <workItem from="1650834129878" duration="6807000" />
     </task>
     <servers />
   </component>

@@ -15,6 +15,7 @@ import org.mockito.invocation.InvocationOnMock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.mockito.stubbing.Answer;
 
+import java.security.PrivilegedActionException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -104,7 +105,6 @@ class ExamServiceImplTest {
     @Test
     void testSaveExam() {
 
-
         // Given
         Exam newExam = DataForTest.EXAMEN;
         newExam.setQuestions(DataForTest.QUESTIONS_MATH);
@@ -136,4 +136,20 @@ class ExamServiceImplTest {
     }
 
 
+    @Test
+    void TestManejoException() {
+        when(examRepository.findAll()).thenReturn(DataForTest.exams);
+        when(questionRepository.findQuestionsForExamId(anyLong())).thenThrow(IllegalArgumentException.class);
+
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            examService.findExamForNameWithQuestion("Matemáticas");
+        });
+
+        assertThat(IllegalArgumentException.class).isEqualTo(exception.getClass());
+
+        verify(examRepository, times(1)).findAll();
+        verify(questionRepository, times(1)).findQuestionsForExamId(anyLong());
+
+
+    }
 }
