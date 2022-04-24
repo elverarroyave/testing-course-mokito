@@ -30,5 +30,7 @@ public class DataForTest {
             "1020"
     );
 
+    public final static Exam EXAMEN = new Exam(10L, "Física");
+
 
 }

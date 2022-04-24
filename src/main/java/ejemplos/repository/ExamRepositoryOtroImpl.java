@@ -15,4 +15,9 @@ public class ExamRepositoryOtroImpl implements ExamRepository{
         }
         return null;
     }
+
+    @Override
+    public Exam save(Exam exam) {
+        return null;
+    }
 }

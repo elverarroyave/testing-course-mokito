@@ -18,4 +18,9 @@ public class ExamRepositoryImpl implements ExamRepository {
                 new Exam(14L, "Matemáticas"));
 
     }
+
+    @Override
+    public Exam save(Exam exam) {
+        return null;
+    }
 }

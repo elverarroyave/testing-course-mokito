@@ -94,5 +94,25 @@ class ExamServiceImplTest {
         verify(questionRepository, times(1)).findQuestionsForExamId(6L);
     }
 
+    @Test
+    void testSaveExam() {
+
+        Exam newExam = DataForTest.EXAMEN;
+        newExam.setQuestions(DataForTest.QUESTIONS_MATH);
+
+        when(examRepository.save(any(Exam.class))).thenReturn(DataForTest.EXAMEN);
+        Exam exam = examService.save(newExam);
+
+        assertNotNull(exam.getId());
+        assertThat(exam.getId()).isEqualTo(10L);
+        assertThat(exam.getName()).isEqualTo("Física");
+
+        System.out.println(exam.toString());
+
+        verify(examRepository).save(any(Exam.class));
+        verify(questionRepository).saveQustions(anyList(), anyLong());
+
+    }
+
 
 }
