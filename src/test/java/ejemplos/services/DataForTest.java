@@ -15,7 +15,7 @@ public class DataForTest {
             new Exam(10L, "Matemáticas")
     );
 
-    public final static List<String>   QUESTIONS = Arrays.asList(
+    public final static List<String>   QUESTIONS_MATH = Arrays.asList(
             "¿Cuál es la suma de los números del 1 al 10?",
             "¿Cuál es la suma de los números del 1 al 20?",
             "¿Cuál es la suma de los números del 1 al 30?",

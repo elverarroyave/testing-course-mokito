@@ -7,6 +7,11 @@ import ejemplos.repository.ExamRepositoryOtroImpl;
 import ejemplos.repository.QuestionRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -17,18 +22,26 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
+@ExtendWith(MockitoExtension.class)
 class ExamServiceImplTest {
 
-    ExamRepository examRepository;
-    ExamService examService;
-    QuestionRepository questionRepository;
+    //Anotaciones para crear los mock
+    @Mock
+    private ExamRepository examRepository;
+    @Mock
+    private QuestionRepository questionRepository;
 
-    @BeforeEach
-    void setUp() {
-        examRepository = mock(ExamRepository.class);
-        questionRepository = mock(QuestionRepository.class);
-        examService = new ExamServiceImpl(examRepository, questionRepository);
-    }
+    //Creamos servicios
+    @InjectMocks
+    private ExamServiceImpl examService;
+
+//    @BeforeEach
+//    void setUp() {
+//        MockitoAnnotations.openMocks(this); //Habilitamos el uso de anotaciones para los mocks
+////        examRepository = mock(ExamRepository.class);
+////        questionRepository = mock(QuestionRepository.class);
+////        examService = new ExamServiceImpl(examRepository, questionRepository);
+//    }
 
     @Test
     void findExamForName() {
@@ -61,7 +74,7 @@ class ExamServiceImplTest {
     void testQuestionExam() {
         when(examRepository.findAll()).thenReturn(DataForTest.exams);
         //when(questionRepository.findQuestionsForExamId(6L)).thenReturn(DataForTest.QUESTIONS);
-        when(questionRepository.findQuestionsForExamId(anyLong())).thenReturn(DataForTest.QUESTIONS);
+        when(questionRepository.findQuestionsForExamId(anyLong())).thenReturn(DataForTest.QUESTIONS_MATH);
         Exam exam = examService.findExamForNameWithQuestion("Matemáticas");
         assertThat(exam.getQuestions().size()).isEqualTo(4);
         assertThat(exam.getQuestions().get(0)).isEqualTo("¿Cuál es la suma de los números del 1 al 10?");
@@ -71,7 +84,7 @@ class ExamServiceImplTest {
     void testQuestionExamVerify() {
         when(examRepository.findAll()).thenReturn(DataForTest.exams);
         //when(questionRepository.findQuestionsForExamId(6L)).thenReturn(DataForTest.QUESTIONS);
-        when(questionRepository.findQuestionsForExamId(anyLong())).thenReturn(DataForTest.QUESTIONS);
+        when(questionRepository.findQuestionsForExamId(anyLong())).thenReturn(DataForTest.QUESTIONS_MATH);
         Exam exam = examService.findExamForNameWithQuestion("Matemáticas");
         assertThat(exam.getQuestions().size()).isEqualTo(4);
         assertThat(exam.getQuestions().get(0)).isEqualTo("¿Cuál es la suma de los números del 1 al 10?");
