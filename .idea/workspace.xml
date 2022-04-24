@@ -5,17 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a6599435-97d2-482d-b667-95cbb6f22183" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ejemplos/repository/ExamRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ejemplos/repository/ExamRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ejemplos/repository/ExamRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ejemplos/repository/ExamRepositoryImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ejemplos/repository/ExamRepositoryOtroImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ejemplos/repository/ExamRepositoryOtroImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ejemplos/repository/QuestionRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ejemplos/repository/QuestionRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ejemplos/services/ExamService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ejemplos/services/ExamService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ejemplos/services/ExamServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ejemplos/services/ExamServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/ejemplos/services/DataForTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ejemplos/services/DataForTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/ejemplos/services/ExamServiceImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ejemplos/services/ExamServiceImplTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ejemplos/services/ExamServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ejemplos/services/ExamServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/ejemplos/services/ExamServiceImplTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/ejemplos/services/ExamServiceImplTest.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,22 +85,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ExamServiceImplTest.findExamForName" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="AppMokito" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="ejemplos.services.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="ejemplos.services" />
-      <option name="MAIN_CLASS_NAME" value="ejemplos.services.ExamServiceImplTest" />
-      <option name="METHOD_NAME" value="findExamForName" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="ExamServiceImplTest.testQuestionExam" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="AppMokito" />
       <extension name="coverage">
@@ -142,6 +117,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="ExamServiceImplTest.testSaveExam (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="AppMokito" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ejemplos.services.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="ejemplos.services" />
+      <option name="MAIN_CLASS_NAME" value="ejemplos.services.ExamServiceImplTest" />
+      <option name="METHOD_NAME" value="testSaveExam" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="ExamServiceImplTest.testSaveExam" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="AppMokito" />
       <extension name="coverage">
@@ -161,10 +152,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.ExamServiceImplTest.testSaveExam" />
+        <item itemvalue="JUnit.ExamServiceImplTest.testSaveExam (1)" />
         <item itemvalue="JUnit.ExamServiceImplTest.testQuestionExamVerify" />
         <item itemvalue="JUnit.ExamServiceImplTest" />
         <item itemvalue="JUnit.ExamServiceImplTest.testQuestionExam" />
-        <item itemvalue="JUnit.ExamServiceImplTest.findExamForName" />
       </list>
     </recent_temporary>
   </component>
@@ -183,7 +174,7 @@
       <workItem from="1649388551643" duration="5580000" />
       <workItem from="1649649237334" duration="4752000" />
       <workItem from="1649986608077" duration="2331000" />
-      <workItem from="1650834129878" duration="3958000" />
+      <workItem from="1650834129878" duration="4987000" />
     </task>
     <servers />
   </component>

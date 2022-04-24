@@ -11,7 +11,9 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+import org.mockito.invocation.InvocationOnMock;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.mockito.stubbing.Answer;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -82,10 +84,15 @@ class ExamServiceImplTest {
 
     @Test
     void testQuestionExamVerify() {
+        //Given
         when(examRepository.findAll()).thenReturn(DataForTest.exams);
         //when(questionRepository.findQuestionsForExamId(6L)).thenReturn(DataForTest.QUESTIONS);
         when(questionRepository.findQuestionsForExamId(anyLong())).thenReturn(DataForTest.QUESTIONS_MATH);
+
+        //When
         Exam exam = examService.findExamForNameWithQuestion("Matemáticas");
+
+        //Then
         assertThat(exam.getQuestions().size()).isEqualTo(4);
         assertThat(exam.getQuestions().get(0)).isEqualTo("¿Cuál es la suma de los números del 1 al 10?");
 
@@ -97,14 +104,28 @@ class ExamServiceImplTest {
     @Test
     void testSaveExam() {
 
+
+        // Given
         Exam newExam = DataForTest.EXAMEN;
         newExam.setQuestions(DataForTest.QUESTIONS_MATH);
 
-        when(examRepository.save(any(Exam.class))).thenReturn(DataForTest.EXAMEN);
+        when(examRepository.save(any(Exam.class))).then(new Answer<Exam>() {
+
+            Long secuencia = 8L;
+            @Override
+            public Exam answer(InvocationOnMock invocation) throws Throwable {
+                Exam exam = invocation.getArgument(0);
+                exam.setId(secuencia++);
+                return exam;
+            }
+        });
+
+        // When
         Exam exam = examService.save(newExam);
 
+        // Then
         assertNotNull(exam.getId());
-        assertThat(exam.getId()).isEqualTo(10L);
+        assertThat(exam.getId()).isEqualTo(8L);
         assertThat(exam.getName()).isEqualTo("Física");
 
         System.out.println(exam.toString());
