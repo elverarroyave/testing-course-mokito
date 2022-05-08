@@ -8,9 +8,7 @@ import ejemplos.repository.QuestionRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
-import org.mockito.MockitoAnnotations;
+import org.mockito.*;
 import org.mockito.invocation.InvocationOnMock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.mockito.stubbing.Answer;
@@ -150,6 +148,45 @@ class ExamServiceImplTest {
         verify(examRepository, times(1)).findAll();
         verify(questionRepository, times(1)).findQuestionsForExamId(anyLong());
 
+    }
 
+    @Test
+    void testArgumentMatchers() {
+        when(examRepository.findAll()).thenReturn(DataForTest.exams);
+        when(questionRepository.findQuestionsForExamId(anyLong())).thenReturn(DataForTest.QUESTIONS_MATH);
+
+        examService.findExamForNameWithQuestion("Matemáticas");
+
+        verify(questionRepository).findQuestionsForExamId(argThat(arg -> arg.equals(6L)));
+        verify(questionRepository).findQuestionsForExamId(argThat(arg -> arg != null && arg.equals(6L)));
+    }
+
+    @Test
+    void testArgumentMatchers2() {
+        when(examRepository.findAll()).thenReturn(DataForTest.exams);
+        when(questionRepository.findQuestionsForExamId(anyLong())).thenReturn(DataForTest.QUESTIONS_MATH);
+
+        examService.findExamForNameWithQuestion("Matemáticas");
+
+        verify(examRepository).findAll();
+        verify(questionRepository).findQuestionsForExamId(argThat(new MiArgsMatchers()));
+    }
+
+    public static class MiArgsMatchers implements ArgumentMatcher<Long> {
+
+        private Long argument;
+
+        @Override
+        public boolean matches(Long arguments) {
+            this.argument = arguments;
+            return arguments != null && arguments > 0;
+        }
+
+        @Override
+        public String toString() {
+            return "Mensaje personalizado de error, cuando falla el test de Mockito." +
+                    "El argumento es: " + argument + "," +
+                    "  Debe ser un entero positivo";
+        }
     }
 }
