@@ -32,6 +32,10 @@ class ExamServiceImplTest {
     @Mock
     private QuestionRepository questionRepository;
 
+
+    @Captor
+    private ArgumentCaptor<Long> captor;
+
     //Creamos servicios
     @InjectMocks
     private ExamServiceImpl examService;
@@ -189,4 +193,22 @@ class ExamServiceImplTest {
                     "  Debe ser un entero positivo";
         }
     }
+
+
+    //Capturar el argumento de un test
+
+    @Test
+    void testArgumentCaptor() {
+        when(examRepository.findAll()).thenReturn(DataForTest.exams);
+        when(questionRepository.findQuestionsForExamId(anyLong())).thenReturn(DataForTest.QUESTIONS_MATH);
+
+        examService.findExamForNameWithQuestion("Matemáticas");
+
+        //ArgumentCaptor<Long> captor = ArgumentCaptor.forClass(Long.class);
+        verify(questionRepository).findQuestionsForExamId(captor.capture());
+
+        assertThat(captor.getValue()).isEqualTo(6L);
+    }
+
+
 }
